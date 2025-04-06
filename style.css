@@ -1,0 +1,123 @@
+/* General Styles */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #ffffff;
+  margin: 0;
+}
+
+/* Orbit Container */
+.orbit-container {
+  position: relative;
+  width: 500px;
+  height: 500px;
+}
+
+/* Center Icon */
+.center-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.center-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Orbit Rings */
+.orbit {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid rgba(200, 200, 200, 0.5);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Inner Orbit */
+.inner-orbit {
+  width: 280px;
+  height: 280px;
+  animation: rotate 10s linear infinite;
+}
+
+/* Outer Orbit */
+.outer-orbit {
+  width: 400px;
+  height: 400px;
+  animation: rotate 20s linear infinite;
+}
+
+/* Orbiting Logos (Shared) */
+.orbiting-logo {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orbiting-logo img {
+  width: 60%;
+  height: auto;
+}
+
+/* Positions for Inner Orbit Icons */
+.google-calendar {
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+
+.outlook {
+  top: 85%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+}
+
+.gmail {
+  top: 85%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+}
+
+/* Positions for Outer Orbit Icons */
+.zapier {
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+
+.slack {
+  top: 90%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+}
+
+.calendly {
+  top: 90%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+}
+
+/* Orbit Rotation Animation */
+@keyframes rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
