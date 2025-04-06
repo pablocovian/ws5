@@ -1,3 +1,4 @@
+/* General Styles */
 body {
   display: flex;
   justify-content: center;
@@ -7,7 +8,7 @@ body {
   margin: 0;
 }
 
-/* Container for entire animation */
+/* Orbit Container */
 .orbit-container {
   position: relative;
   width: 500px;
@@ -22,105 +23,67 @@ body {
   width: 80px;
   height: 80px;
   transform: translate(-50%, -50%);
-  z-index: 2;
+  z-index: 10;
 }
 
 .center-icon img {
   width: 100%;
-  height: 100%;
-  object-fit: contain;
 }
 
-/* Static Orbit Rings */
-.orbit-ring {
+/* Orbit Rings */
+.orbit {
   position: absolute;
   border-radius: 50%;
-  border: 2px solid rgba(200, 200, 200, 0.5);
+  border: 2px solid rgba(200, 200, 200, 0.5); /* Light Grey Orbit Lines */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1;
 }
 
-.inner-orbit-ring {
-  width: 280px;
-  height: 280px;
+/* Inner Orbit */
+.inner-orbit {
+  width: 350px;
+  height: 350px;
 }
 
-.outer-orbit-ring {
-  width: 400px;
-  height: 400px;
-}
-
-/* Wrapper to rotate each icon around the center */
-.icon-wrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform-origin: center;
-}
-
-/* Inner Orbit Wrappers */
-.orbit-inner {
-  width: 280px;
-  height: 280px;
-  animation: spin-inner 10s linear infinite;
-}
-
-/* Outer Orbit Wrappers */
-.orbit-outer {
-  width: 400px;
-  height: 400px;
-  animation: spin-outer 20s linear infinite;
+/* Outer Orbit */
+.outer-orbit {
+  width: 480px;
+  height: 480px;
 }
 
 /* Orbiting Logos */
 .orbiting-logo {
   position: absolute;
-  top: 0;
-  left: 50%;
   width: 60px;
   height: 60px;
-  transform: translateX(-50%) rotate(0deg);
-  background-color: white;
+  background: white;
   border-radius: 50%;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  animation: stay-upright 10s linear infinite;
 }
 
+/* Logo Images */
 .orbiting-logo img {
   width: 60%;
   height: auto;
 }
 
-/* Upright fix: Rotate opposite to wrapper */
-.icon-wrapper .orbiting-logo {
-  animation: stay-upright 10s linear infinite;
-}
+/* Positioning for Inner Orbit */
+.google-calendar { top: 10%; left: 50%; transform: translateX(-50%); }
+.outlook { top: 70%; left: 20%; transform: translateX(-50%); }
+.gmail { top: 70%; left: 80%; transform: translateX(-50%); }
 
-/* Match rotation direction */
-.orbit-inner .orbiting-logo {
-  animation: stay-upright 10s linear infinite;
-}
-.orbit-outer .orbiting-logo {
-  animation: stay-upright 20s linear infinite;
-}
+/* Positioning for Outer Orbit */
+.zapier { top: 5%; left: 50%; transform: translateX(-50%); }
+.slack { top: 90%; left: 30%; transform: translateX(-50%); }
+.calendly { top: 90%; left: 70%; transform: translateX(-50%); }
 
-/* Spin keyframes for wrappers */
-@keyframes spin-inner {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to   { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-@keyframes spin-outer {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to   { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-/* Keep logo upright */
+/* Logo Animation - upright */
 @keyframes stay-upright {
-  from { transform: translateX(-50%) rotate(0deg); }
-  to   { transform: translateX(-50%) rotate(-360deg); }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
 }
